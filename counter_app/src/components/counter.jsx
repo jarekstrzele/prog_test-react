@@ -14,8 +14,12 @@ class Counter extends Component {
         fontWeight: "bold"
     }
 
-    incrementHandler(){
-        console.log("incr"); 
+    // incrementHandler(){
+    //     console.log(this); // will be undefined
+    // }
+
+    incrementHandler = () => {
+        this.setState({ count: this.state.count + 1})
     }
 
     render() { 
