@@ -1,56 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Counter extends Component {
+  state = {
+    count: this.props.value
+  };
+
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
     
-    // https:picsum.photos/200 -> random image size 200
-    // special object
-    state = {  
-        count: 0,
-        imageUrl: 'https://picsum.photos/200'
-    } ; 
+    return (
+      <div>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+      </div>
+    );
+  }
 
-    styles = {
-        fontSize: 20,
-        fontWeight: "bold"
-    }
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
 
-    // incrementHandler(){
-    //     console.log(this); // will be undefined
-    // }
-
-    incrementHandler = () => {
-        this.setState({ count: this.state.count + 1})
-    }
-
-    render() { 
-        let classes = this.getBadgeClasses();
-      
-        return (
-        <>
-            <h1>My counter app</h1>
-            {/*<span>{this.state.count}</span>
-            <img src={this.state.imageUrl} alt=""></img>
-        */}
-            <span style={this.styles} className={classes}>{this.formatCount()}</span>
-            <button style={{fontSize:22}} 
-                className="btn btn-secondary btn-sm"
-                onClick={this.incrementHandler}>
-                       increment
-            </button>
-        </>    
-        );
-    }
-    
-    getBadgeClasses() {
-        let classes = "badge badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
-        return classes;
-    }
-
-    formatCount(){
-        const { count } = this.state ;
-        return count === 0 ? "Zero" : count;
-    }
+  formatCount() {
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
+  }
 }
- 
+
 export default Counter;
