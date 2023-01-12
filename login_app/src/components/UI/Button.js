@@ -1,9 +1,9 @@
 import React from 'react' ;
 //import classes from './Button.module.css' ;
 
-const Cutton = props => {
+const Button = props => {
 
-    <button >Add user</button>
+    <button >{props.children}</button>
 } ;
 
-export default Cutton ;
+export default Button ;
