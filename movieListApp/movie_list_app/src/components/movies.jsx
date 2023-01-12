@@ -34,7 +34,7 @@ class Movies extends Component{
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody> 
             {this.state.movies.map(movie => (
                     <tr>
                         <td>{movie.title}</td>
