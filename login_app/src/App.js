@@ -1,9 +1,10 @@
 import React, { useState } from 'react' ; 
 import AddUser from './components/Users/AddUser';
 import UsersList from './components/Users/UsersList';
-
+import './App.css' ;
 
 function App() {
+
   const [userList, setUsersList] = useState([]);
 
   const addUserHandler = (uName, uAge) => {
@@ -15,8 +16,8 @@ function App() {
   }
 
   return (
-   <div>
-      <AddUser onAddUser={addUserHandler} />
+   <div className='style_flex'>
+      <AddUser onAddUser={addUserHandler}  />
       <UsersList users={userList}  />
     </div>
   );
