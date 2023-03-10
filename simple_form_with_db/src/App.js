@@ -8,7 +8,7 @@ function App() {
   const [yourData, setYourData] = useState('')
 
   async function sendDataHandler(event){
-    // event.preventDefault();
+    event.preventDefault();
     
     const new_data_object={
       your_data: yourData
