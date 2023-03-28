@@ -2,16 +2,19 @@ import { useEffect, useState } from 'react';
 import {View, Text, StyleSheet} from 'react-native' ;
 
 const Clock = () => {
-
+    
 
     const [time, setTime] = useState(new Date().toLocaleTimeString()) ;
 
-    useEffect( () => {
-        const interval = setInterval ( () => {
-            setTime(new Date().toLocaleTimeString());
-        }, 1000) ;
+    const start_time = () => {
+        setTime(new Date().toLocaleTimeString());
+    }
 
-        return () => clearInterval(interval) ; 
+    useEffect( () => {
+        const interval = setInterval (start_time, 1000) ;
+
+        return () => clearInterval(interval) ; // usuwał interwał i zatrzymuje wykonywanie funkcji zdefiniowanej wew. setInterval()
+        // to jest ważne, aby aplikacja była optymalna i ni prowadziła do wycieków pamięci
     }, [])
 
     return <View>
